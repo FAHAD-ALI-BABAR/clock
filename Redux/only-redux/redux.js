@@ -1,11 +1,17 @@
 const redux=require("redux");
 const initailavalue={
-    counter:0
+    counter:1
 }
 const reducer=(store=initailavalue,action)=>{
     let newvalue=store;
     if(action.type==="Increment"){
-        newvalue={store: store.counter+1}
+        newvalue={counter:store.counter+1};
+    }else if(action.type==="Decrement"){
+        // console.log("decrement:",store);
+        
+        newvalue={counter:store.counter-1};
+    }else if(action.type==="Addition"){
+        newvalue={counter: store.counter+ action.payload.userid}
     }
     return newvalue
 //     console.log("reducer called",action);
@@ -20,3 +26,8 @@ const subscriber=()=>{
 }
 store.subscribe(subscriber);
 store.dispatch({type:"Increment"})
+store.dispatch({type:"Decrement"})
+store.dispatch({type:"Increment"})
+store.dispatch({type:"Decrement"})
+store.dispatch({type:"Addition",payload:{userid:7}})
+
