@@ -1,0 +1,19 @@
+.cont{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+}
+.separate-line {
+  border: 3px solid red;
+  display: block;
+  margin-bottom: 10px;
+}
+.input-btn{
+  max-width: 110px;
+  margin-right: 10px;
+  
+}
+.btnnn{
+  margin: 10px;
+}
