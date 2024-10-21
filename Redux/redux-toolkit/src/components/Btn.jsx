@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useDispatch } from 'react-redux'
-import {sliceaction} from "../store"
+import {privacyaction, sliceaction} from "../store"
 const Btn = () => {
     const inputelement=useRef();
    
@@ -18,7 +18,11 @@ const Btn = () => {
        dispatch(sliceaction.Reset());
     }
     const handleaddition=()=>{
-      dispatch(sliceaction.Addition());
+      dispatch(sliceaction.Addition({
+        
+          addnum:inputelement.current.value,
+        
+      }));
         // let inputelementvalue=inputelement.current.value;
         // console.log("value is:",inputelementvalue);
         
@@ -36,7 +40,11 @@ const Btn = () => {
         inputelement.current.value="";
     }
     const handlesubtraction=()=>{
-      dispatch(sliceaction.Subtraction())
+      dispatch(sliceaction.Subtraction({
+        
+        subnum:inputelement.current.value,
+      
+    }));
         // console.log("subtarction");
         
         // let inputelementvalue=inputelement.current.value;
@@ -49,7 +57,7 @@ const Btn = () => {
     const handleprivacy=()=>{
         console.log("privacy");
         
-        dispatch({type:"Privacy_toggle"})
+        dispatch(privacyaction.toggle());
     }
   return (
     <>
